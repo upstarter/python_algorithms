@@ -4,6 +4,10 @@ A collection of Machine Learning and Artificial Intelligence algorithmic techniq
 
 ## Todo:
 
+Knapsack
+
+Multi-Armed Bandit
+
 Linear Regression
 
 Cluster Analysis
@@ -15,10 +19,6 @@ Support Vector Machines
 Nearest Neighbors
 
 Anomaly Detection
-
-Knapsack
-
-Multi-Armed Bandit
 
 Markov Decision Processes
 
