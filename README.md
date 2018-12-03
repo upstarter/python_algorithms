@@ -32,6 +32,8 @@ Bayesian Networks
 
 Neural Networks
 
+Probabilistic Programming (Sparse Data)
+
 Probabilistic Graphical Models
 
 Deep Reinforcement Learning
