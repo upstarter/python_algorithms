@@ -4,18 +4,36 @@ A collection of Machine Learning and Artificial Intelligence algorithms in Pytho
 
 ## Todo:
 
+Linear Regression
+
+Cluster Analysis
+
+Decision Tree Learning
+
+Support Vector Machines
+
+Nearest Neighbors
+
+Anomaly Detection
+
 Knapsack
 
 Multi-Armed Bandit
 
-Decision Tree Learning
-
 Markov Decision Processes
+
+Random Forests
+
+Ensemble Techniques
+
+Naive Bayes Classifier
 
 Bayesian Networks
 
+Neural Networks
+
 Probabilistic Graphical Models
 
-Deep Learning
+Deep Reinforcement Learning
 
 AGI
