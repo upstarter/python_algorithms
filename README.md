@@ -1,6 +1,6 @@
 # PythonAlgorithms
 
-A collection of Machine Learning and Artificial Intelligence algorithms in Python.
+A collection of Machine Learning and Artificial Intelligence algorithmic techniques in Python.
 
 ## Todo:
 
