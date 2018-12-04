@@ -2,7 +2,7 @@
 
 A collection of Machine Learning and Artificial Intelligence algorithmic techniques in Python.
 
-## Todo:
+## WIP:
 
 Knapsack
 
