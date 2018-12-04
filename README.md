@@ -3,7 +3,7 @@
 A collection of Machine Learning and Artificial Intelligence
 methods.
 
-## Todo:
+## WIP:
 
 Knapsack
 
