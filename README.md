@@ -3,9 +3,11 @@
 A collection of Machine Learning and Artificial Intelligence
 methods.
 
-## WIP:
+## DONE:
 
 Knapsack
+
+## WIP:
 
 Multi-Armed Bandit
 
