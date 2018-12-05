@@ -1,4 +1,4 @@
-class ClassName(object):
+class PatternMatch(object):
     """docstring for ."""
     def __init__(self, arg):
         super(, self).__init__()
