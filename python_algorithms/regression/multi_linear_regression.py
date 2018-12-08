@@ -13,8 +13,6 @@ year = datetime.datetime.today().year
 years = [year] * 12 + [(year-1)] * 12
 months = [x for x in range(1,13)] + [x for x in range(1,13)]
 
-print(len(years))
-print(len(months))
 Stock_Market = {'Year': years,
                 'Month': months,
                 'Interest_Rate': [2.75,2.5,2.5,2.5,2.5,2.5,2.5,2.25,2.25,2.25,2,2,2,1.75,1.75,1.75,1.75,1.75,1.75,1.75,1.75,1.75,1.75,1.75],
