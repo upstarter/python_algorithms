@@ -22,7 +22,7 @@ def knapSack(W , wt , val , n):
 
 # end knapSack()
 
-# To test above function
+# test
 val = [60, 100, 120]
 wt = [10, 20, 30]
 W = 50

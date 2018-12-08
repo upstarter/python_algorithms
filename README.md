@@ -1,15 +1,13 @@
 # PythonAlgorithms
 
 A collection of Machine Learning and Artificial Intelligence
-methods.
+tools.
 
 ## DONE:
 
 Knapsack
 
 ## WIP:
-
-Multi-Armed Bandit
 
 Linear Regression
 
