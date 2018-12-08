@@ -18,12 +18,12 @@ def DPKnapSack(val, wt, n, W):
     i = 0
     while i < n: # one by one traverse
                  # each element
-        j = 0 # traverse all wieghts j <= W
+        j = 0 # traverse all weights j <= W
 
-        # if i is odd that mean till
-        # now we have odd number of
-        # elements so we store result
-        # in 1th indexed row
+        # if i is odd that means until
+        # now we have an odd number of
+        # elements so we store the result
+        # in the 1th indexed row
         if i % 2 == 0:
             while j < W: # check for each value
                 j += 1
@@ -54,7 +54,6 @@ def DPKnapSack(val, wt, n, W):
         return mat[1][W]
 
 
-# knapsack.py
 # A dynamic programming algorithm for the 0-1 knapsack problem and
 # a greedy algorithm for the fractional knapsack problem
 
