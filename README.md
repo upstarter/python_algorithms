@@ -7,15 +7,23 @@ tools.
 
 Knapsack
 
+Linear Regression
+
+Support Vector Machine
+
+Deep Reinforcement Learning
+
 ## WIP:
 
-Linear Regression
+Random Stochastic Search
+
+Hill Climbing
+
+Monte Carlo
 
 Cluster Analysis
 
 Decision Tree Learning
-
-Support Vector Machines
 
 Nearest Neighbors
 
@@ -36,7 +44,5 @@ Neural Networks
 Probabilistic Programming (Sparse Data)
 
 Probabilistic Graphical Models
-
-Deep Reinforcement Learning
 
 AGI
