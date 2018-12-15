@@ -33,7 +33,7 @@ Markov Decision Processes
 
 Random Forests
 
-Ensemble Techniques
+Gradient Boosting Machines
 
 Naive Bayes Classifier
 
