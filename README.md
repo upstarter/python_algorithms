@@ -15,6 +15,10 @@ Deep Reinforcement Learning
 
 ## WIP:
 
+Random Forests
+
+Gradient Boosting Machines
+
 Random Stochastic Search
 
 Hill Climbing
@@ -30,10 +34,6 @@ Nearest Neighbors
 Anomaly Detection
 
 Markov Decision Processes
-
-Random Forests
-
-Ensemble Techniques
 
 Naive Bayes Classifier
 
