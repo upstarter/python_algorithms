@@ -1,5 +1,6 @@
 # numpy arrays
 import numpy as np
+from pprint import pprint
 
 arr_a = np.array([3, 6, 9])
 arr_b = arr_a/3 # Performing vectorized (element-wise) operations
