@@ -91,7 +91,7 @@ ax3.legend()
 ax3.set_xlabel('Interest Rate')
 ax3.set_title('Interest Rate Vs. Stock Index Price')
 
-#plot 2nd scatter
+# plot 2nd scatter
 figure4 = plt.Figure(figsize=(5,4), dpi=100)
 ax4 = figure4.add_subplot(111)
 ax4.scatter(df['Unemployment_Rate'].astype(float),df['Stock_Index_Price'].astype(float), color = 'g')
