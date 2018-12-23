@@ -19,7 +19,7 @@ print(z2)
 
 str1 = "Cake 4 U"
 str2 = "404"
-len(str1)
+len(str1) # off by one for iter!
 str1.isdigit()
 # False
 str2.isdigit()
@@ -28,10 +28,6 @@ str1.replace('4 U', str2)
 'Cake 404'
 
 # substrings
-str1 = 'cookie'
-str2 = 'cook'
-str1.find(str2)
-
 str1 = 'I got you a cookie'
 str2 = 'cook'
 str1.find(str2)

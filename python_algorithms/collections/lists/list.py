@@ -1,4 +1,5 @@
 from pprint import pprint
+import itertools
 
 list_num = [1,2,45,6,7,2,90,23,435]
 list_char = ['c','o','o','k','i','e']

@@ -18,15 +18,44 @@ class PatternMatch(object):
             if j == m:
                 print("Pattern found at index {}".format(i))
 
-    # # knuth-morris-pratt algorithm for pattern matching strings
-    # def knp(pat, str):
-    #
+    # knuth-morris-pratt algorithm for pattern matching strings
+
+    def kmp(self, pat, txt):
+    	if pat == "":
+    		return 0  # Immediate match
+
+    	# Compute longest suffix-prefix table
+    	lsp = [0]  # Base case
+    	for c in pat[1 : ]:
+    		j = lsp[-1]  # Start by assuming we're extending the previous LSP
+    		while j > 0 and c != pat[j]:
+    			j = lsp[j - 1]
+    		if c == pat[j]:
+    			j += 1
+    		lsp.append(j)
+
+    	# Walk through txt string
+    	j = 0  # Number of chars matched in pat
+    	for i in range(len(txt)):
+    		while j > 0 and txt[i] != pat[j]:
+    			j = lsp[j - 1]  # Fall back in the pat
+    		if txt[i] == pat[j]:
+    			j += 1  # Next char matched, increment position
+    			if j == len(pat):
+    				return i - (j - 1)
+    	return None  # Not found
+
     # # rubin-karp string pattern matching
     # def rubinKarp(pat, str):
 
 
 pm = PatternMatch()
-n = pm.naive('na', 'banana')
-m = pm.naive('oct', 'octagenarian octopus')
+# n = pm.naive('na', 'banana')
+# m = pm.naive('oct', 'octagenarian octopus')
+# print(n)
+# print(m)
+
+n = pm.kmp('na', 'banana')
+m = pm.kmp('oct', 'octagenarian octopus')
 print(n)
 print(m)
