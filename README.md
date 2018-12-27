@@ -1,6 +1,6 @@
 # PythonAlgorithms
 
-A collection of Machine Learning and Artificial Intelligence
+Machine Learning and Artificial Intelligence
 tools.
 
 ## DONE:
@@ -9,13 +9,14 @@ Knapsack
 
 Linear Regression
 
-Support Vector Machine
+Random Forests
 
 Deep Reinforcement Learning
 
-## WIP:
+Support Vector Machine
 
-Random Forests
+
+## WIP:
 
 Gradient Boosting Machines
 

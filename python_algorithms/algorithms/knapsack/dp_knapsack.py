@@ -5,7 +5,7 @@
 # val[] is for storing maximum
 # profit for each weight
 # wt[] is for storing weights
-# n number of item
+# n number of items
 # W maximum capacity of bag
 # mat[2][W+1] to store final result
 
@@ -53,9 +53,6 @@ def DPKnapSack(val, wt, n, W):
     else:
         return mat[1][W]
 
-
-# A dynamic programming algorithm for the 0-1 knapsack problem and
-# a greedy algorithm for the fractional knapsack problem
 
 # A dynamic programming algorithm for the 0-1 knapsack problem.
 def Knapsack01(v, w, W):
