@@ -15,6 +15,12 @@ Deep Reinforcement Learning
 
 Support Vector Machine
 
+Naive Bayes Classifier
+
+Cluster Analysis
+
+Decision Trees
+
 
 ## WIP:
 
@@ -26,17 +32,11 @@ Hill Climbing
 
 Monte Carlo
 
-Cluster Analysis
-
-Decision Tree Learning
-
 Nearest Neighbors
 
 Anomaly Detection
 
 Markov Decision Processes
-
-Naive Bayes Classifier
 
 Bayesian Networks
 
