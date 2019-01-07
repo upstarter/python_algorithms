@@ -15,6 +15,8 @@ Deep Reinforcement Learning
 
 Support Vector Machine
 
+Nearest Neighbors
+
 
 ## WIP:
 
@@ -29,8 +31,6 @@ Monte Carlo
 Cluster Analysis
 
 Decision Tree Learning
-
-Nearest Neighbors
 
 Anomaly Detection
 
