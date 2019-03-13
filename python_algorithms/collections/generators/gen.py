@@ -95,7 +95,5 @@ def unique(iterable, key=lambda x: x):
 # Even if we were to use this only once, it is worth writing a function (for the
 # sake of clarity; remember that Python allows nested functions).
 
-
-
 # you can feed generators as input to other generators, creating long,
 # data-driven pipelines, with sequence items pulled and processed as needed.
