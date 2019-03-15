@@ -21,22 +21,21 @@ Cluster Analysis
 
 Decision Trees
 
+Nearest Neighbors
+
+Random Stochastic Search
+
+Markov Decision Processes
 
 ## WIP:
 
 Gradient Boosting Machines
 
-Random Stochastic Search
-
 Hill Climbing
 
 Monte Carlo
 
-Nearest Neighbors
-
 Anomaly Detection
-
-Markov Decision Processes
 
 Bayesian Networks
 

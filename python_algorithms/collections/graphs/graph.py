@@ -7,9 +7,9 @@ graph = { "a" : ["c", "d"],
 
 def define_edges(graph):
     edges = []
-    for vertices in graph:
-        for neighbour in graph[vertices]:
-            edges.append((vertices, neighbour))
+    for vertex in graph:
+        for neighbour in graph[vertex]:
+            edges.append((vertex, neighbour))
     return edges
 
 print(define_edges(graph))
