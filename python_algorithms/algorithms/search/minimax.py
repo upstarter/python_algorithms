@@ -24,9 +24,9 @@ def minimax (curDepth, nodeIndex,
                      True, scores, targetDepth))
 
 # Driver code
-scores = [1, 3, 0, 7, 10, 3, 21, 21] 
+scores = [1, 3, 0, 7, 10, 3, 21, 21]
 
 treeDepth = math.log(len(scores), 2)
 
-print("The optimal value is : ", end = "")
+print("The optimal value is : ")
 print(minimax(0, 0, True, scores, treeDepth))
