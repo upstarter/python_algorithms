@@ -5,7 +5,6 @@ data = [((31), ("Amazing Spider-Man"), (481), ("Marvel")),
         ((28), ("The Incredible Hulk"), (612), ("Marvel"))] # etc, hundreds more like this.
 
 # could have done this:
-
 dict_data = {}
 for i in data:
     dict_data[i[0]] = [i[1], i[2], i[3]]

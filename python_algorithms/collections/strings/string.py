@@ -25,7 +25,7 @@ str1.isdigit()
 str2.isdigit()
 # True
 str1.replace('4 U', str2)
-'Cake 404'
+#=> 'Cake 404'
 
 # substrings
 str1 = 'I got you a cookie'

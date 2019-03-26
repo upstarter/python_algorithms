@@ -1,4 +1,15 @@
-# Initialize the list
+# Generators are a special class of functions that simplify the task of writing
+# iterators. Regular functions compute a value and return it, but generators
+# return an iterator that returns a stream of values.
+
+# Here’s the simplest example of a generator function:
+
+def generate_ints(N):
+    for i in range(N):
+        yield i
+
+
+# Initialize a list
 my_list = [1, 3, 6, 10]
 
 # square each term using list comprehension
@@ -7,8 +18,8 @@ my_list = [1, 3, 6, 10]
 
 # same thing can be done using generator expression
 # Output: <generator object <genexpr> at 0x0000000002EBDAF8>
-
 a = (x**2 for x in my_list)
+
 # Output: 1
 print(next(a))
 
@@ -38,8 +49,6 @@ def rev_str(my_str):
 # h
 for char in rev_str("hello"):
      print(char)
-
-
 
 sum(x**2 for x in my_list)
 
@@ -97,3 +106,17 @@ def unique(iterable, key=lambda x: x):
 
 # you can feed generators as input to other generators, creating long,
 # data-driven pipelines, with sequence items pulled and processed as needed.
+
+
+# The for...in clauses contain the sequences to be iterated over. The sequences do
+# not have to be the same length, because they are iterated over from left to
+# right, not in parallel. For each element in sequence1, sequence2 is looped over
+# from the beginning. sequence3 is then looped over for each resulting pair of
+# elements from sequence1 and sequence2.
+
+seq1 = 'abc'
+seq2 = (1,2,3)
+[(x,y) for x in seq1 for y in seq2]
+[('a', 1), ('a', 2), ('a', 3),
+ ('b', 1), ('b', 2), ('b', 3),
+ ('c', 1), ('c', 2), ('c', 3)]
