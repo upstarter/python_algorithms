@@ -1,3 +1,34 @@
+# A zipper, in general, is a data structure with a hole in it. Zippers are used
+# for traversing/manipulating data structures, and the hole corresponds to the
+# current focus of the traversal. Typically there is also an element of the data
+# structure under consideration, so that one has a (list) zipper and a list or a
+# (tree) zipper and a tree. The zipper allows the programmer to efficiently move
+# around the data structure, even replacing the element at the focus. The pair of
+# the zipper and the element in the focus satisfy the constraint that placing the
+# element at the focus in the hole gives the original data structure.
+
+# From Huet's paper:
+#
+# "In this note, we explain a simple solution where tree editing is completely
+# local, the handle on the data not being the original root of the tree, but
+# rather the current position in the tree. Generalizing this to any level, we
+# would get a notion of a hierarchical Turing machine, where a tape position may
+# contain either a symbol or a tape from a lower level."
+
+# Zipper is a generic term used to qualify a data structure that you can
+# arbitrarily modify and navigate through. This is generally done by
+# deconstructing the data structure as you go through it so that you have, on
+# one hand, the data structure yet unexplored, and on the other hand, the
+# exploded set of previously seen items. The idea is that as you move forward,
+# you keep deconstructing the structure and adding the past items to the set,
+# and that as you move backwards, you reconstruct the set of previously seen
+# data structures, wrapping them around the current one.
+
+# This lets you update and insert content inside the data structure in amortized
+# constant time while letting you freely move through it as you would in a doubly
+# linked lists or in bidirectional graphs. Note that zippers are not search data
+# structures.
+
 from collections import namedtuple
 
 Path=namedtuple('Path', 'l, r, pnodes, ppath, changed')

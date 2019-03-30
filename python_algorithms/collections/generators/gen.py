@@ -107,7 +107,6 @@ def unique(iterable, key=lambda x: x):
 # you can feed generators as input to other generators, creating long,
 # data-driven pipelines, with sequence items pulled and processed as needed.
 
-
 # The for...in clauses contain the sequences to be iterated over. The sequences do
 # not have to be the same length, because they are iterated over from left to
 # right, not in parallel. For each element in sequence1, sequence2 is looped over

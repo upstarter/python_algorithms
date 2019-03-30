@@ -1,6 +1,23 @@
 from pprint import pprint
 import itertools
 
+data = [ 'OCN', 50, 91.1, (2012, 12, 21) ]
+name, shares, price, date = data
+name
+#=> 'OCN'
+date
+#=> (2012, 12, 21)
+
+name, shares, price, (year, mon, day) = data
+name
+# 'OCN'
+year
+#=> 2012
+mon
+#=> 12
+day
+#=> 21
+
 list_num = [1,2,45,6,7,2,90,23,435]
 list_char = ['c','o','o','k','i','e']
 

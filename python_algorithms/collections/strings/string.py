@@ -1,5 +1,13 @@
 from pprint import pprint
 
+# Useful Python String Methods:
+
+# len() – Returns the length of the string
+# s1 in s2 – Is s1 a substring of s2
+# index(s1) – Returns the index of s1 in the string
+# list(s1) – Converts s1 into a character array
+# s1[i:j] – Get  the substring of s1 from i to j
+
 x = 'Cake'
 y = 'Cookie'
 

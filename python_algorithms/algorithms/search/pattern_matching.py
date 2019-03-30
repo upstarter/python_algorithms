@@ -50,8 +50,37 @@ class PatternMatch(object):
 
         return matches
 
-    # # rubin-karp string pattern matching
-    # def rubinKarp(pat, str):
+
+    def value(self, letter, power):
+        return (26 ** power) * (ord(letter) - 96)
+
+    def rubin_hash(self, prev, start, new, k):
+        return (prev - self.value(start, k - 1)) * 26 + self.value(new, 0)
+
+    def rubin_karp(self, pattern, string):
+        matches = []
+        k = len(pattern)
+
+        pattern_val = 0
+        for i, char in enumerate(pattern):
+            pattern_val += self.value(char, k - i - 1)
+
+        hash_val = 0
+        for i, char in enumerate(string[:k]):
+            hash_val += self.value(char, k - i - 1)
+
+        if pattern_val == hash_val:
+            if string[:k] == pattern:
+                matches.append(0)
+
+        for i in range(len(string) - k):
+            hash_val = self.rubin_hash(hash_val, string[i], string[i + k], k)
+            if pattern_val == hash_val:
+                if string[i + 1 : i + k + 1] == pattern:
+                    matches.append(i + 1)
+
+        return matches
+
 
 
 pm = PatternMatch()
@@ -62,5 +91,10 @@ print(m)
 
 n = pm.kmp('na', 'banana')
 m = pm.kmp('oct', 'octagenarian octopus')
+print(n)
+print(m)
+
+n = pm.rubin_karp('na', 'banana')
+m = pm.rubin_karp('oct', 'octagenarian octopus')
 print(n)
 print(m)

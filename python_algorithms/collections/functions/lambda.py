@@ -1,6 +1,15 @@
-# Functional programming can be considered the opposite of object-oriented programming. Objects are little capsules containing some internal state along with a collection of method calls that let you modify this state, and programs consist of making the right set of state changes. Functional programming wants to avoid state changes as much as possible and works with data flowing between functions. In Python you might combine the two approaches by writing functions that take and return instances representing objects in your application (e-mail messages, transactions, etc.).
+# Functional programming can be considered the opposite of object-oriented
+# programming. Objects are little capsules containing some internal state along
+# with a collection of method calls that let you modify this state, and programs
+# consist of making the right set of state changes. Functional programming wants
+# to avoid state changes as much as possible and works with data flowing between
+# functions. In Python you might combine the two approaches by writing functions
+# that take and return instances representing objects in your application
+# (e-mail messages, transactions, etc.).
 #
-# Functional design may seem like an odd constraint to work under. Why should you avoid objects and side effects? There are theoretical and practical advantages to the functional style:
+# Functional design may seem like an odd constraint to work under. Why should
+# you avoid objects and side effects? There are theoretical and practical
+# advantages to the functional style:
 #
 # Formal provability.
 # Modularity.
