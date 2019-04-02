@@ -87,10 +87,8 @@ ypts = [101, 78, 37, 15, 62, 99]
 for x, y in zip(xpts, ypts):
     print(x,y)
 
-# iterating multiple containers of items
+# iterating multiple containers efficiently
 # Inefficent
 # for x in a + b:
 # Better
 # for x in chain(a, b):
-
-(Page 132).
