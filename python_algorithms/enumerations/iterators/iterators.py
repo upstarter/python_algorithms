@@ -89,6 +89,8 @@ for x, y in zip(xpts, ypts):
 
 # iterating multiple containers efficiently
 # Inefficent
-# for x in a + b:
+for x in a + b:
+    print(x)
 # Better
-# for x in chain(a, b):
+for x in chain(a, b):
+    print(x)

@@ -18,7 +18,7 @@ class Layer:
 
     def forward(self, inputs: Tensor) -> Tensor:
         """
-        Product the outputs corresponding to these inputs
+        Produce the outputs corresponding to these inputs
         """
         raise NotImplementedError
 
