@@ -1,3 +1,4 @@
+import numpy as np
 # MULTIPLICATION
 x = np.array( ((2,3), (3, 5)) )
 y = np.array( ((1,2), (5, -1)) )
