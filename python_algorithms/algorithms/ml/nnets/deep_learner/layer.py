@@ -68,7 +68,7 @@ F = Callable[[Tensor], Tensor]
 
 class Activation(Layer):
     """
-    An activation layer just appolies a function
+    An activation layer just applies a function
     elementwise to its inputs
     """
     def __init__(self, f: F, f_prime: F) -> None:
