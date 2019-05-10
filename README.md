@@ -44,5 +44,3 @@ Bayesian Networks
 Probabilistic Programming (Sparse Data)
 
 Probabilistic Graphical Models
-
-AGI
