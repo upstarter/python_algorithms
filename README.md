@@ -11,6 +11,8 @@ Linear Regression
 
 Random Forests
 
+Neural Networks
+
 Deep Reinforcement Learning
 
 Support Vector Machine
@@ -38,8 +40,6 @@ Monte Carlo
 Anomaly Detection
 
 Bayesian Networks
-
-Neural Networks
 
 Probabilistic Programming (Sparse Data)
 
