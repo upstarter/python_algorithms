@@ -17,7 +17,7 @@ print(multi_arr_ones)
 
 # One extremely notable aspect of NumPy is the manner in which it extends
 # Python’s list indexing functionality—especially with multidimensional arrays.
-# To illustrate, make a simple two-dimensional array and try some experiments:
+# To illustrate, make a simple two-dimensional array and try some experiments:\
 a = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
 print(a)
 #=> array([[ 1, 2, 3, 4], [ 5, 6, 7, 8], [ 9, 10, 11, 12]])
@@ -49,8 +49,8 @@ print(np.where(a < 10, a, 10))
 #=> array([[ 1, 2, 3, 4],
 
 # python array
-# import array as arr
-# a = arr.array("I",[1,2,3])
+import array as arr
+a = arr.array("I",[1,2,3])
 
 # Type  code	C Type	Python Type	Minimum size in bytes
 # 'b'	signed char	int	1

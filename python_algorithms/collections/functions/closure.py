@@ -2,21 +2,24 @@
 # when need to monkey patch a function
 # dynamically build behavior by 'stacking functions'
 
-# For creating generators
-# yield is both exit and entry point
-def step(start=0, step=1):
+#### For creating generators
+
+def step(start=0, step=1, end=50):
     _start = start
-    while True:
-        yield _start
-        _start += step
+    while _start < end: # if infinite loop, list(stepper) will exhaust memory
+        yield _start # yield is both exit and entry point
+        _start += step # this gets called after every entry
 
 stepper = step(10, 2)
 
-print(stepper.next()) #=> 10
-print(stepper.next()) #=> 12
-print(stepper.next()) #=> 14
+print(next(stepper)) #=> 10
+print(next(stepper)) #=> 12
+print(next(stepper)) #=> 14
 
-
+# Generator Expression
+stepper = (x * 5 for x in range(0, 10))
+print(list(stepper))
+#=> (0,5,10,15,...)
 
 
 #### As Function Factory
@@ -24,7 +27,6 @@ def divide_numbers(x, y):
     return x / y
  # divide_numbers(2, 1) #=> 2
 
-# closure
 def divide_closure(x):
     def wrapped(y): # wrap closes over y
         return x / y
