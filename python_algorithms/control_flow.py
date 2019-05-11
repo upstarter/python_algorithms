@@ -13,6 +13,4 @@ else:
 
 # Conditionals
 
-# Loops
-
 # Boolean Logic
