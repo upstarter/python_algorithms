@@ -4,21 +4,31 @@
 # xrange is better than range
 # Loop over dict keys and values
 
+d = {'a': 1, 'b': 2}
 # creates many items in mem
-for k, v in d.items()
+for k, v in d.items():
+    print(k,v)
 
 # better in space
-for k, v in d.iteritems()
+for k, v in d.iteritems():
+    print(k,v)
 
 names = []
 colors = []
+from itertools import izip
 # faster than zip
 d = dict(izip(names, colors))
+# izip_longest fills in None's for shorter collection
+
+res = zip('abcd', 'wxyz')
+print(dict(res))
+
+print(dict([(k * 3, v) for k, v in res]))
 
 # counting with dicts
 # ok:
 d = {}
-for color in colors
+for color in colors:
   if color not in d:
       d[color] = 0
   d[color] += 1
@@ -49,10 +59,9 @@ for name in names:
     key = len(name)
     d[key].append(name)
 
+
 # to convert a list of tuples to a dictionary using the first value as the key.
 # Looked like this (making a database of comic book files):
-
-
 data = [((31), ("Amazing Spider-Man"), (481), ("Marvel")),
         ((28), ("The Incredible Hulk"), (612), ("Marvel"))] # etc, hundreds more like this.
 

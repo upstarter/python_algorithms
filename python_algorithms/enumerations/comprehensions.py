@@ -1,3 +1,4 @@
+## List Comprehensions
 matrix = [[1,2,3], [4,5,6]]
 
 # for loop
@@ -15,3 +16,11 @@ negative_evens_matrix = [
 from itertools import izip
 list(zip(*matrix)) # returns tuples
 print([list(col) for col in izip(*matrix)])
+
+# Dict Comprehension
+my_dict = {'a': 1, 'b': 2, 'c': 3}
+result = {k + '_key': v * 2 for k,v in my_dict.iteritems()}
+print(result)
+print(result.iterkeys())
+print(result.itervalues())
+print(result.iteritems())
