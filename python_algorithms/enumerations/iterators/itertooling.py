@@ -1,8 +1,14 @@
 from itertools import chain
 from itertools import combinations
 from itertools import permutations
+from itertools import product
+
+# from itertools import ifilter
+# from itertools import imap
+# from itertools import izip
 
 
+## groupby
 from itertools import groupby
 mylist = 'aaaaabbbbbccdd' #sorted
 # group returns a generator
@@ -13,12 +19,29 @@ print({k:list(v) for k, v in groupby(mylist)})
 
 
 mylist = [
-    {'i': 1, 'name': 'ray'},
-    {'i': 1, 'name': 'jeremy'},
-    {'i': 3, 'name': 'grant'},
+    {'group': 1, 'name': 'ray'},
+    {'group': 1, 'name': 'jeremy'},
+    {'group': 3, 'name': 'grant'},
 ]
 print({k:list(v) for k, v in groupby(mylist,
-        key=lambda x: x['i'])})
+        key=lambda x: x['group'])})
+
+mylist = [
+    { 'id': 1, 'name': 'ray' },
+    { 'id': 1, 'email': 'ray@hotmail.com' },
+    { 'id': 2, 'name': 'liz' },
+    { 'id': 2, 'email': 'liz@hotmail.com' }
+]
+
+from functools import reduce
+# map name, email to id
+res = [ dict(
+    reduce(lambda y, z: y | z, # entries union
+      map(lambda x: x.items(), v) # x is a grouper items object generator
+    )
+) for k, v in groupby(mylist, key=lambda x: x['id']) ]
+
+print(res)
 
 
 ## SLICING AND DICING
@@ -80,6 +103,7 @@ for x, y in zip(xpts, ypts):
 
 # iterating multiple containers efficiently
 # Inefficent
+a, b = [[1,2],[3,4]]
 for x in a + b:
     print(x)
 # Better
