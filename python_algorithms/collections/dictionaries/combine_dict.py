@@ -19,10 +19,11 @@ mylist = [
     { 'id': 2, 'email': 'liz@hotmail.com' }
 ]
 
+from functools import reduce
 # map name, email to id
 res = [ dict(
-    reduce(lambda y, z: y + z, # sum works too!
-      map(lambda x: x.items(), v) # x is a tuple of k,v
+    reduce(lambda y, z: y | z, # entries union
+      map(lambda x: x.items(), v) # x is a grouper items object generator
     )
 ) for k, v in groupby(mylist, key=lambda x: x['id']) ]
 

@@ -1,7 +1,9 @@
-from itertools import chain
-from itertools import combinations
-from itertools import permutations
-from itertools import product
+from itertools import chain, groupby
+from itertools import islice, cycle
+from itertools import combinations, permutations
+from itertools import product, count, compress
+from functools import reduce
+
 
 # from itertools import ifilter
 # from itertools import imap
@@ -9,7 +11,6 @@ from itertools import product
 
 
 ## groupby
-from itertools import groupby
 mylist = 'aaaaabbbbbccdd' #sorted
 # group returns a generator
 print(list(groupby(mylist)))
@@ -33,7 +34,6 @@ mylist = [
     { 'id': 2, 'email': 'liz@hotmail.com' }
 ]
 
-from functools import reduce
 # map name, email to id
 res = [ dict(
     reduce(lambda y, z: y | z, # entries union
@@ -46,11 +46,9 @@ print(res)
 
 ## SLICING AND DICING
 # take slice of an iterator
-import itertools
-for x in itertools.islice(range(1,20), 1, 2):
+for x in islice(range(1,20), 1, 2):
     print(x)
 
-from itertools import cycle
 # like a circulary linked list
 # if list large, memory intensive
 orbit = cycle('12345678')
@@ -70,7 +68,6 @@ print(list(chain(*a_list)))
 # Output: [1, 2, 3, 4, 5, 6]
 
 ## compress
-from itertools import compress
 mylist = 'abcdef'
 myselectors = [1,0,1,1,0,1]
 print(list(compress(mylist, myselectors)))
@@ -80,7 +77,6 @@ print([v for v, s in zip(mylist, myselectors) if s])
 #=> ['a', 'c', 'd', 'f']
 
 # count
-from itertools import count
 # do not call len or list on this
 counter = count(1,5) # like stepper in closures.py
 for c  in 'abc':
@@ -88,7 +84,6 @@ for c  in 'abc':
 
 
 # islice  knowing the exact amount to drop
-from itertools import islice
 items = ['a', 'b', 'c', 1, 4, 10, 15]
 for x in islice(items, 3, None):
     print(x)
