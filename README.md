@@ -11,6 +11,8 @@ Linear Regression
 
 Random Forests
 
+Neural Networks
+
 Deep Reinforcement Learning
 
 Support Vector Machine
@@ -39,10 +41,6 @@ Anomaly Detection
 
 Bayesian Networks
 
-Neural Networks
-
 Probabilistic Programming (Sparse Data)
 
 Probabilistic Graphical Models
-
-AGI

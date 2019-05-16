@@ -1,5 +1,4 @@
 from pprint import pprint
-import itertools
 
 data = [ 'OCN', 50, 91.1, (2012, 12, 21) ]
 name, shares, price, date = data
@@ -38,11 +37,3 @@ print(list_num)
 
 list.reverse(list_num)
 print(list_num)
-
-# flattening
-a_list = [[1, 2], [3, 4], [5, 6]]
-print(list(itertools.chain.from_iterable(a_list)))
-# Output: [1, 2, 3, 4, 5, 6]
-# or
-print(list(itertools.chain(*a_list)))
-# Output: [1, 2, 3, 4, 5, 6]
