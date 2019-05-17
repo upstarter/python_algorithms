@@ -7,11 +7,10 @@ print(result.keys())
 print(result.values())
 print(result.items())
 
-# filtering with dict comprehension
 fruits = ['apple', 'mango', 'banana','cherry']
-
 f1 ={f:f.capitalize() for f in fruits}
+# keys to be removed
 remove_this = {'apple','cherry'}
-# dict comprehension example to delete key:value pairs
+# dict comprehension example to delete key:value pairs in a dictionary
 {key:f1[key] for key in f1.keys() - remove_this}
 #=> {'banana': 'Banana', 'mango': 'Mango'}
