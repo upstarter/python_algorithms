@@ -3,12 +3,9 @@ from itertools import islice, cycle
 from itertools import combinations, permutations
 from itertools import product, count, compress
 from functools import reduce
-
-
 # from itertools import ifilter
 # from itertools import imap
 # from itertools import izip
-
 
 ## groupby
 mylist = 'aaaaabbbbbccdd' #sorted
@@ -26,6 +23,7 @@ mylist = [
 ]
 print({k:list(v) for k, v in groupby(mylist,
         key=lambda x: x['group'])})
+
 
 mylist = [
     { 'id': 1, 'name': 'ray' },
