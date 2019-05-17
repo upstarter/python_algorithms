@@ -19,3 +19,12 @@ def search(graph, start_node):
         frontier.add(node)
 
   return explored
+
+graph = { "a" : ["c", "d"],
+          "b" : ["d", "e"],
+          "c" : ["a", "e"],
+          "d" : ["a", "b"],
+          "e" : ["b", "c"]
+        }
+
+print search(graph, "a")
