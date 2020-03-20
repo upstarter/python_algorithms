@@ -38,4 +38,4 @@ def binary_search_recursive(data, target, low, high):
             return binary_search_recursive(data, target, mid+1, high)
 
 print binary_search_iter(data, 5)
-print binary_search_recursive(data, 5, 0, len(data) -1)
+print binary_search_recursive(data, 5, 0, len(data) - 1)
