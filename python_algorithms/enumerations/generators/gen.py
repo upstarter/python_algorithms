@@ -4,6 +4,7 @@
 
 # Here’s the simplest example of a generator function:
 
+
 def generate_ints(N):
     for i in range(N):
         yield i
@@ -14,11 +15,11 @@ my_list = [1, 3, 6, 10]
 
 # square each term using list comprehension
 # Output: [1, 9, 36, 100]
-[x**2 for x in my_list]
+[x ** 2 for x in my_list]
 
 # same thing can be done using generator expression
 # Output: <generator object <genexpr> at 0x0000000002EBDAF8>
-a = (x**2 for x in my_list)
+a = (x ** 2 for x in my_list)
 
 # Output: 1
 print(next(a))
@@ -35,10 +36,12 @@ print(next(a))
 # Output: StopIteration
 next(a)
 
+
 def rev_str(my_str):
     length = len(my_str)
-    for i in range(length - 1,-1,-1):
+    for i in range(length - 1, -1, -1):
         yield my_str[i]
+
 
 # For loop to reverse the string
 # Output:
@@ -48,14 +51,15 @@ def rev_str(my_str):
 # e
 # h
 for char in rev_str("hello"):
-     print(char)
+    print(char)
 
-sum(x**2 for x in my_list)
+sum(x ** 2 for x in my_list)
 
-max(x**2 for x in my_list)
+max(x ** 2 for x in my_list)
+
 
 class PowTwo:
-    def __init__(self, max = 0):
+    def __init__(self, max=0):
         self.max = max
 
     def __iter__(self):
@@ -70,19 +74,22 @@ class PowTwo:
         self.n += 1
         return result
 
+
 # This was lengthy. Now lets do the same using a generator function.
 
-def PowTwoGen(max = 0):
+
+def PowTwoGen(max=0):
     n = 0
     while n < max:
         yield 2 ** n
         n += 1
 
+
 # Pipelining
-with open('sells.log') as file:
+with open("sells.log") as file:
     pizza_col = (line[3] for line in file)
-    per_hour = (int(x) for x in pizza_col if x != 'N/A')
-    print("Total pizzas sold = ",sum(per_hour))
+    per_hour = (int(x) for x in pizza_col if x != "N/A")
+    print("Total pizzas sold = ", sum(per_hour))
 
 
 # A generator function will be more clear if the generated
@@ -91,12 +98,14 @@ with open('sells.log') as file:
 
 # Consider the following example:
 
+
 def unique(iterable, key=lambda x: x):
     seen = set()
     for elem, ekey in ((e, key(e)) for e in iterable):
         if ekey not in seen:
             yield elem
             seen.add(ekey)
+
 
 # Here, the temporary keys collector, seen, is a temporary storage that will
 # just be more clutter in the location where this generator will be used.
@@ -113,9 +122,17 @@ def unique(iterable, key=lambda x: x):
 # from the beginning. sequence3 is then looped over for each resulting pair of
 # elements from sequence1 and sequence2.
 
-seq1 = 'abc'
-seq2 = (1,2,3)
-[(x,y) for x in seq1 for y in seq2]
-[('a', 1), ('a', 2), ('a', 3),
- ('b', 1), ('b', 2), ('b', 3),
- ('c', 1), ('c', 2), ('c', 3)]
+seq1 = "abc"
+seq2 = (1, 2, 3)
+[(x, y) for x in seq1 for y in seq2]
+[
+    ("a", 1),
+    ("a", 2),
+    ("a", 3),
+    ("b", 1),
+    ("b", 2),
+    ("b", 3),
+    ("c", 1),
+    ("c", 2),
+    ("c", 3),
+]

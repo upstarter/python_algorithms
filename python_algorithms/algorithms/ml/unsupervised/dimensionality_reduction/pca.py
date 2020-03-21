@@ -1,8 +1,9 @@
 # Import Library
 from sklearn import decomposition
+
 # Assumed you have training and test data set as train and test
 # Create PCA object
-pca= decomposition.PCA(n_components=k)
+pca = decomposition.PCA(n_components=k)
 # default value of k =min(n_sample, n_features)
 # For Factor analysis
 # fa= decomposition.FactorAnalysis()

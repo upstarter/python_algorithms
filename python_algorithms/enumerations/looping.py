@@ -3,18 +3,18 @@
 # number of times it runs, you should use a while loop.
 
 # Looping over a range of numbers (all 3 below are same use iterator protocol)
-for i in [0,1,2,3]:
-    print i**2
+for i in [0, 1, 2, 3]:
+    print i ** 2
 
 for i in range(6):
-    print i**2
+    print i ** 2
 
 # in python 2 xrange is an generator
 for i in xrange(6):
-    print i**2
+    print i ** 2
 
 # Looping over a collection
-colors = ['red', 'green']
+colors = ["red", "green"]
 
 # BAD
 for i in range(len(colors)):
@@ -30,17 +30,17 @@ for color in reversed(colors):
 
 # looping over a collection with index
 for i, color in enumerate(colors):
-    print i, '-->', colors[i]
+    print i, "-->", colors[i]
 
 # Looping over two collections at once
 # this doesn't scale
-names = ['ray', 'rachel']
+names = ["ray", "rachel"]
 for name, color in zip(names, colors):
-    print name, '-->', color
+    print name, "-->", color
 
 # better, using iterator
 for name, color in izip(names, colors):
-    print name, '-->', color
+    print name, "-->", color
 
 # Looping in sorted order
 for color in sorted(colors, reverse=True):

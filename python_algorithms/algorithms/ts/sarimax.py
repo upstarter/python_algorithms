@@ -1,6 +1,7 @@
 # Seasonal Autoregressive Integrated Moving Average with Exogenous Regressors
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 from random import random
+
 # contrived dataset
 data1 = [x + random() for x in range(1, 100)]
 data2 = [x + random() for x in range(101, 200)]

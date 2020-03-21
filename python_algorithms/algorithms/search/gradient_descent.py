@@ -4,7 +4,7 @@ precision = 0.00001  # Desired precision of result
 max_iters = 10000  # Maximum number of iterations
 
 # Derivative function
-df = lambda x: 4 * x**3 - 9 * x**2
+df = lambda x: 4 * x ** 3 - 9 * x ** 2
 
 for i in range(max_iters):
     current_x = next_x
@@ -14,4 +14,4 @@ for i in range(max_iters):
         break
 
 print("Minimum at", next_x)
-#=> "Minimum at 2.2499646074278457"
+# => "Minimum at 2.2499646074278457"

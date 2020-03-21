@@ -4,23 +4,24 @@
 # xrange is better than range
 # Loop over dict keys and values
 
-d = {'a': 1, 'b': 2}
+d = {"a": 1, "b": 2}
 # creates many items in mem
 for k, v in d.items():
-    print(k,v)
+    print(k, v)
 
 # better in space
 for k, v in d.iteritems():
-    print(k,v)
+    print(k, v)
 
 names = []
 colors = []
 from itertools import izip
+
 # faster than zip
 d = dict(izip(names, colors))
 # izip_longest fills in None's for shorter collection
 
-res = zip('abcd', 'wxyz')
+res = zip("abcd", "wxyz")
 print(dict(res))
 
 print(dict([(k * 3, v) for k, v in res]))
@@ -29,17 +30,17 @@ print(dict([(k * 3, v) for k, v in res]))
 # ok:
 d = {}
 for color in colors:
-  if color not in d:
-      d[color] = 0
-  d[color] += 1
+    if color not in d:
+        d[color] = 0
+    d[color] += 1
 
- # best:
+# best:
 for color in colors:
     d[color] = d.get(color, 0) + 1
 
 # grouping with dicts
 # ok:
-names = ['fred', 'jim']
+names = ["fred", "jim"]
 d = {}
 for name in names:
     key = len(name)
@@ -62,14 +63,16 @@ for name in names:
 
 # to convert a list of tuples to a dictionary using the first value as the key.
 # Looked like this (making a database of comic book files):
-data = [((31), ("Amazing Spider-Man"), (481), ("Marvel")),
-        ((28), ("The Incredible Hulk"), (612), ("Marvel"))] # etc, hundreds more like this.
+data = [
+    ((31), ("Amazing Spider-Man"), (481), ("Marvel")),
+    ((28), ("The Incredible Hulk"), (612), ("Marvel")),
+]  # etc, hundreds more like this.
 
 # could have done this:
 dict_data = {}
 for i in data:
     dict_data[i[0]] = [i[1], i[2], i[3]]
 
- # a more Pythonic approach.
+# a more Pythonic approach.
 # dict_data = {i[0]:[*i[1:]] for i in data}
 # print(dict_data)

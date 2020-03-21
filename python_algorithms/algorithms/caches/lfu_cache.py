@@ -120,14 +120,15 @@ class Cache(DoublyLinkedList):
         try:
             tmp = self.items[key]
         except KeyError:
-            raise NotFoundException('Key not found')
+            raise NotFoundException("Key not found")
 
         freq_node = tmp.parent
         next_freq_node = freq_node.next
 
         if not next_freq_node or next_freq_node.data != freq_node.data + 1:
-            next_freq_node = self.insert_freq_node(freq_node.data + 1,
-                                                   freq_node, next_freq_node)
+            next_freq_node = self.insert_freq_node(
+                freq_node.data + 1, freq_node, next_freq_node
+            )
         item_node = next_freq_node.add_item_node(key)
         tmp.parent = next_freq_node
 
@@ -140,7 +141,7 @@ class Cache(DoublyLinkedList):
 
     def insert(self, key, value):
         if key in self.items:
-            raise DuplicateException('Key exists')
+            raise DuplicateException("Key exists")
         freq_node = self.head
         if not freq_node or freq_node.data != 1:
             freq_node = self.insert_freq_node(1, None, freq_node)
@@ -150,7 +151,7 @@ class Cache(DoublyLinkedList):
 
     def get_lfu(self):
         if not len(self.items):
-            raise NotFoundException('Items list is empty.')
+            raise NotFoundException("Items list is empty.")
         return self.head.head.data, self.items[self.head.head.data].data
 
     def delete_lfu(self):
@@ -158,7 +159,7 @@ class Cache(DoublyLinkedList):
         Remove the LFU item from the dictionary.
         """
         if not self.head:
-            raise NotFoundException('No frequency nodes found')
+            raise NotFoundException("No frequency nodes found")
         freq_node = self.head
         item_node = freq_node.head
         del self.items[item_node.data]
@@ -173,10 +174,10 @@ class Cache(DoublyLinkedList):
         freq2: [item, item]
         ...
         """
-        s = ''
+        s = ""
         freq_node = self.head
         while freq_node:
-            s += '%s: %s\n' % (freq_node.data, freq_node.get_nodes_data())
+            s += "%s: %s\n" % (freq_node.data, freq_node.get_nodes_data())
             freq_node = freq_node.next
         return s
 
@@ -187,6 +188,7 @@ class DuplicateException(Exception):
 
 class NotFoundException(Exception):
     pass
+
 
 # obj = LFUCache(capacity)
 # param_1 = obj.get(key)

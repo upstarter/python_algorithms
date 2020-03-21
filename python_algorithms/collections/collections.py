@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 # namedtuple()
 # UserDict
 # UserList
@@ -12,7 +13,7 @@ from collections import defaultdict
 # tuple, list, string, range
 
 # unpacking sequences
-p = 'ray', 0x30, 'python'
+p = "ray", 0x30, "python"
 
 # no:
 name = p[0]

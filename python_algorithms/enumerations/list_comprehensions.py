@@ -1,5 +1,5 @@
 ## List Comprehensions
-matrix = [[1,2,3], [4,5,6]]
+matrix = [[1, 2, 3], [4, 5, 6]]
 
 # for loop
 negative_matrix = []
@@ -8,11 +8,10 @@ for row in matrix:
 
 # list comprehension
 negative_evens_matrix = [
-    [-n for n in row] # or negate(n)
-    for row in matrix
-    if n % 2 == 0
+    [-n for n in row] for row in matrix if n % 2 == 0  # or negate(n)
 ]
 
 from itertools import izip
-list(zip(*matrix)) # returns tuples
+
+list(zip(*matrix))  # returns tuples
 print([list(col) for col in izip(*matrix)])

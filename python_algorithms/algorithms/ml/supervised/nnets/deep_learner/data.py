@@ -14,6 +14,7 @@ class DataIterator:
     def __call__(self, inputs: Tensor, targets: Tensor) -> Iterator[Batch]:
         raise NotImplementedError
 
+
 class BatchIterator(DataIterator):
     def __init__(self, batch_size: int = 32, shuffle: bool = True) -> None:
         self.batch_size = batch_size

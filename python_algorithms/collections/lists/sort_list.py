@@ -1,13 +1,15 @@
-sorted = sorted([1,4,3,2])
+from operator import itemgetter, attrgetter
+
+sorted = sorted([1, 4, 3, 2])
 print(sorted)
 
 # Precedence Sort / Complex Sorts
 # Starting with Python 2.2, sorts are guaranteed to be stable. That means that
 # when multiple records have the same key, their original order is preserved.
 
-data = [('red', 1), ('blue', 1), ('red', 2), ('blue', 2)]
+data = [("red", 1), ("blue", 1), ("red", 2), ("blue", 2)]
 
-sorted(data, key=itemgetter(0))
+# sorted(data, key=itemgetter(0))
 # => [('blue', 1), ('blue', 2), ('red', 1), ('red', 2)]
 
 # Notice how the two records for blue retain their original order so that
@@ -21,21 +23,26 @@ sorted(data, key=itemgetter(0))
 
 # Using those functions, the above examples become simpler and faster:
 
-from operator import itemgetter, attrgetter
+student_tuples = [
+    ("john", "A", 15),
+    ("jane", "B", 12),
+    ("dave", "B", 10),
+]
+
 
 sorted(student_tuples, key=itemgetter(2))
 # [('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
 
-sorted(student_objects, key=attrgetter('age'))
+sorted(student_tuples, key=attrgetter("age"))
 # [('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
 
 # The operator module functions allow multiple levels of sorting. For example,
 # to sort by grade then by age:
 
-sorted(student_tuples, key=itemgetter(1,2))
+sorted(student_tuples, key=itemgetter(1, 2))
 # [('john', 'A', 15), ('dave', 'B', 10), ('jane', 'B', 12)]
 
-sorted(student_objects, key=attrgetter('grade', 'age'))
+sorted(student_tuples, key=attrgetter("grade", "age"))
 # [('john', 'A', 15), ('dave', 'B', 10), ('jane', 'B', 12)]
 
 # The operator.methodcaller() function makes method calls with fixed parameters
@@ -44,9 +51,10 @@ sorted(student_objects, key=attrgetter('grade', 'age'))
 # message:
 
 from operator import methodcaller
-messages = ['critical!!!', 'hurry!', 'standby', 'immediate!!']
 
-sorted(messages, key=methodcaller('count', '!'))
+messages = ["critical!!!", "hurry!", "standby", "immediate!!"]
+
+sorted(messages, key=methodcaller("count", "!"))
 
 # ['standby', 'hurry!', 'immediate!!', 'critical!!!']
 
@@ -54,12 +62,6 @@ sorted(messages, key=methodcaller('count', '!'))
 # steps. For example, to sort the student data by descending grade and then
 # ascending age, do the age sort first and then sort again using grade:
 
-student_objects = [
-    {name: 'john', grade: 'A', age: 15},
-    {name: 'jane', grade: 'B', age: 12},
-    {name: 'dave', grade: 'B', age: 10}
- ]
-
-s = sorted(student_objects, key=attrgetter('age'))     # sort on secondary key
-sorted(s, key=attrgetter('grade'), reverse=True)       # now sort on primary key, descending
-[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
+s = sorted(student_tuples, key=attrgetter("age"))  # sort on secondary key
+sorted(s, key=attrgetter("grade"), reverse=True)  # now sort on primary key, descending
+[("dave", "B", 10), ("jane", "B", 12), ("john", "A", 15)]

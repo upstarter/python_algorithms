@@ -1,6 +1,7 @@
 # Seasonal Autoregressive Integrated Moving Average
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 from random import random
+
 # contrived dataset
 data = [x + random() for x in range(1, 100)]
 # fit model

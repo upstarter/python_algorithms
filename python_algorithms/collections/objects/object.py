@@ -2,7 +2,8 @@
 # greatly reduce the memory footprint of instances by adding the __slots__
 # attribute to the class definition.
 class Date:
-    __slots__ = ['year', 'month', 'day']
+    __slots__ = ["year", "month", "day"]
+
     def __init__(self, year, month, day):
         self.year = year
         self.month = month

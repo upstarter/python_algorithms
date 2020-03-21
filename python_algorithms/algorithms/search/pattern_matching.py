@@ -10,7 +10,7 @@ class PatternMatch(object):
 
             # For current index i, check for pattern match
             j = 0
-            while(j < m):
+            while j < m:
                 if txt[i + j] != pat[j]:
                     break
                 j += 1
@@ -25,7 +25,7 @@ class PatternMatch(object):
 
         # Compute longest suffix-prefix table
         lsp = [0]  # Base case
-        for c in pat[1 : ]:
+        for c in pat[1:]:
             j = lsp[-1]  # Start by assuming extension of previous LSP
 
             while j > 0 and c != pat[j]:
@@ -42,14 +42,13 @@ class PatternMatch(object):
                 j = lsp[j - 1]  # Fall back in the pattern
 
             if txt[i] == pat[j]:
-                j += 1 # Next char matched, increment position
+                j += 1  # Next char matched, increment position
 
             if j == len(pat):
                 matches.append(i - (j - 1))
-                j = j-1
+                j = j - 1
 
         return matches
-
 
     def value(self, letter, power):
         return (26 ** power) * (ord(letter) - 96)
@@ -82,19 +81,18 @@ class PatternMatch(object):
         return matches
 
 
-
 pm = PatternMatch()
-n = pm.naive('na', 'banana')
-m = pm.naive('oct', 'octagenarian octopus')
+n = pm.naive("na", "banana")
+m = pm.naive("oct", "octagenarian octopus")
 print(n)
 print(m)
 
-n = pm.kmp('na', 'banana')
-m = pm.kmp('oct', 'octagenarian octopus')
+n = pm.kmp("na", "banana")
+m = pm.kmp("oct", "octagenarian octopus")
 print(n)
 print(m)
 
-n = pm.rubin_karp('na', 'banana')
-m = pm.rubin_karp('oct', 'octagenarian octopus')
+n = pm.rubin_karp("na", "banana")
+m = pm.rubin_karp("oct", "octagenarian octopus")
 print(n)
 print(m)

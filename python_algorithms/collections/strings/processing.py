@@ -31,11 +31,10 @@ print is_palindrome(s)
 # if last is not same type as closing or no last opening symbol at all (empty list), can stop - unbalanced
 # else we can remove last opening symbol in the list because we have got its counterpart
 # we keep track of unclosed parens
-def balanced_parens(chars):
-    n = len(chars)
-    opens = []
-    for o in opens:
+# def balanced_parens(chars):
+#     for c in chars:
+#         if c ==
 
 
-print(balanced_parens("()[]{}") == true)
-print(balanced_parens("()[]") == false)
+print (balanced_parens("()[]{}") == true)
+print (balanced_parens("()[]") == false)

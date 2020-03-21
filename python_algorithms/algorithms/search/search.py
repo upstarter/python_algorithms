@@ -1,4 +1,4 @@
-data = [1,2,3,4,5,6,7,8]
+data = [1, 2, 3, 4, 5, 6, 7, 8]
 target = 5
 
 # Linear Search
@@ -24,6 +24,7 @@ def binary_search_iter(data, target):
             low = mid + 1
     return False
 
+
 # Recursive Binary Search
 def binary_search_recursive(data, target, low, high):
     if low > high:
@@ -33,9 +34,10 @@ def binary_search_recursive(data, target, low, high):
         if target == data[mid]:
             return True
         elif target < data[mid]:
-            return binary_search_recursive(data, target, low, mid-1)
+            return binary_search_recursive(data, target, low, mid - 1)
         else:
-            return binary_search_recursive(data, target, mid+1, high)
+            return binary_search_recursive(data, target, mid + 1, high)
+
 
 print binary_search_iter(data, 5)
 print binary_search_recursive(data, 5, 0, len(data) - 1)

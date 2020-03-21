@@ -3,10 +3,11 @@
 # O(n^3) time
 def naive_max_subarray_sum(arr):
     current_max = 0
-    for i in range(len(arr) - 1):
-        for j in range(i, len(arr))
+    for i in arr:
+        for j in arr:
             current_max = max(current_max, sum(arr[i:j]))
     return current_max
+
 
 # O(n) time, O(1) space
 def kadanes_max_subbarray_sum(arr):

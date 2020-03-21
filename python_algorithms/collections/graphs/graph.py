@@ -1,9 +1,11 @@
-graph = { "a" : ["c", "d"],
-          "b" : ["d", "e"],
-          "c" : ["a", "e"],
-          "d" : ["a", "b"],
-          "e" : ["b", "c"]
-        }
+graph = {
+    "a": ["c", "d"],
+    "b": ["d", "e"],
+    "c": ["a", "e"],
+    "d": ["a", "b"],
+    "e": ["b", "c"],
+}
+
 
 def define_edges(graph):
     edges = []
@@ -12,18 +14,20 @@ def define_edges(graph):
             edges.append((vertex, neighbour))
     return edges
 
-print(define_edges(graph))
+
+print("defined edges: ", define_edges(graph))
 
 
 # Dict Graphs
 
-graph = { "a" : ["c"],
-          "b" : ["c", "e"],
-          "c" : ["a", "b", "d", "e"],
-          "d" : ["c"],
-          "e" : ["c", "b"],
-          "f" : []
-        }
+graph = {
+    "a": ["c"],
+    "b": ["c", "e"],
+    "c": ["a", "b", "d", "e"],
+    "d": ["c"],
+    "e": ["c", "b"],
+    "f": [],
+}
 
 # import dictionary for graph
 from collections import defaultdict
@@ -31,8 +35,10 @@ from collections import defaultdict
 # function for adding edge to graph
 graph = defaultdict(list)
 
-def addEdge(graph,u,v):
+
+def addEdge(graph, u, v):
     graph[u].append(v)
+
 
 def generate_edges(graph):
     edges = []
@@ -48,41 +54,45 @@ def generate_edges(graph):
 
 
 # function to find path
-def find_path(graph, start, end, path =[]):
-  path = path + [start]
-  if start == end:
-    return path
-  for node in graph[start]:
-    if node not in path:
-      newpath = find_path(graph, node, end, path)
-      if newpath:
-        return newpath
-      return None
+def find_path(graph, start, end, path=[]):
+    path = path + [start]
+    if start == end:
+        return path
+    for node in graph[start]:
+        if node not in path:
+            newpath = find_path(graph, node, end, path)
+            if newpath:
+                return newpath
+            return None
 
 
 # function to generate all possible paths
-def find_all_paths(graph, start, end, path =[]):
-  path = path + [start]
-  if start == end:
-    return [path]
-  paths = []
-  for node in graph[start]:
-    if node not in path:
-      newpaths = find_all_paths(graph, node, end, path)
-    for newpath in newpaths:
-      paths.append(newpath)
-  return paths
+def find_all_paths(graph, start, end, path=[]):
+    path = path + [start]
+    if start == end:
+        return [path]
+    paths = []
+    for node in graph[start]:
+        if node not in path:
+            newpaths = find_all_paths(graph, node, end, path)
+        for newpath in newpaths:
+            paths.append(newpath)
+    return paths
 
- # function to find the shortest path
-def find_shortest_path(graph, start, end, path =[]):
-        path = path + [start]
-        if start == end:
-            return path
-        shortest = None
-        for node in graph[start]:
-            if node not in path:
-                newpath = find_shortest_path(graph, node, end, path)
-                if newpath:
-                    if not shortest or len(newpath) < len(shortest):
-                        shortest = newpath
-        return shortest
+
+# function to find the shortest path
+def find_shortest_path(graph, start, end, path=[]):
+    path = path + [start]
+    if start == end:
+        return path
+    shortest = None
+    for node in graph[start]:
+        if node not in path:
+            newpath = find_shortest_path(graph, node, end, path)
+            if newpath:
+                if not shortest or len(newpath) < len(shortest):
+                    shortest = newpath
+    return shortest
+
+
+print("shortest path: ", find_shortest_path(graph, "a", "e"))

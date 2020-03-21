@@ -16,20 +16,20 @@ else:
 ## If
 age = 18
 if age >= 18:
-    print('is an adult')
+    print ("is an adult")
 elif age >= 12:
-    print 'is a young adult'
+    print "is a young adult"
 elif age >= 3:
-    print 'child'
+    print "child"
 else:
-    print 'not an adult'
+    print "not an adult"
 
 ## Ternary
-old_enough = 'Adult' if age >= 21 else 'Under 21'
+old_enough = "Adult" if age >= 21 else "Under 21"
 
 ## While
 while age < 50:
-    print 'not old enough'
+    print "not old enough"
     age += 1
 
 # Boolean Logic

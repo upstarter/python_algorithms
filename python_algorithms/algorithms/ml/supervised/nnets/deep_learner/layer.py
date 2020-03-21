@@ -28,17 +28,18 @@ class Layer:
         """
         raise NotImplementedError
 
+
 class Linear(Layer):
     """
     computs output = inputs @ w + b
     """
+
     def __init__(self, input_size: int, output_size: int) -> None:
         # inputs will be (batch_size, input_size)
         # outputs will be (batch_size, output_size)
         super().__init__()
         self.params["w"] = np.random.randn(input_size, output_size)
         self.params["b"] = np.random.randn(output_size)
-
 
     def forward(self, inputs: Tensor) -> Tensor:
         """
@@ -64,13 +65,16 @@ class Linear(Layer):
         self.grads["w"] = self.inputs.T @ grad
         return grad @ self.params["w"].T
 
+
 F = Callable[[Tensor], Tensor]
+
 
 class Activation(Layer):
     """
     An activation layer just applies a function
     elementwise to its inputs
     """
+
     def __init__(self, f: F, f_prime: F) -> None:
         super().__init__()
         self.f = f
@@ -87,12 +91,15 @@ class Activation(Layer):
         """
         return self.f_prime(self.inputs) * grad
 
+
 def tanh(x: Tensor) -> Tensor:
     return np.tanh(x)
+
 
 def tanh_prime(x: Tensor) -> Tensor:
     y = tanh(x)
     return 1 - y ** 2
+
 
 class Tanh(Activation):
     def __init__(self):

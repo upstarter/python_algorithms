@@ -5,6 +5,7 @@ class Selector(Task):
         is still RUNNING, then a RUNNING status is returned and processing
         continues until either SUCCESS or FAILURE is returned from the subtask.
     """
+
     def __init__(self, name, *args, **kwargs):
         super(Selector, self).__init__(name, *args, **kwargs)
 
@@ -17,6 +18,7 @@ class Selector(Task):
 
         return TaskStatus.FAILURE
 
+
 class Sequence(Task):
     """
         Runs each task in order until one fails, at which point it returns
@@ -25,6 +27,7 @@ class Sequence(Task):
         processing continues until either SUCCESS or FAILURE is returned from
         the subtask.
     """
+
     def __init__(self, name, *args, **kwargs):
         super(Sequence, self).__init__(name, *args, **kwargs)
 
@@ -33,6 +36,6 @@ class Sequence(Task):
             status = c.run()
 
             if status != TaskStatus.SUCCESS:
-                 return status
+                return status
 
         return TaskStatus.SUCCESS

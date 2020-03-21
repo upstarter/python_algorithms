@@ -6,14 +6,17 @@ def web_lookup(url, saved={}):
     saved[url] = page
     return page
 
+
 # better:
-@cache # new one is lrucache
+@cache  # new one is lrucache
 def weblookup(url):
     return urllib.urlopen(url).read()
+
 
 # caching decorator -  your utils libraries should be full of these
 def cache(func):
     saved = {}
+
     @wraps(func)
     def newfunc(*args):
         if args in saved:
@@ -21,4 +24,5 @@ def cache(func):
         result = func(*args)
         saved[args] = result
         return result
+
     return newfunc

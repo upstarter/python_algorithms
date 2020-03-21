@@ -116,12 +116,15 @@ class TransactionManager(object):
 
 
 # Ignore name errors because these names are namedtuples.
-SupportRecord = namedtuple( # pylint: disable=C0103
-    'SupportRecord', ('items', 'support'))
-RelationRecord = namedtuple( # pylint: disable=C0103
-    'RelationRecord', SupportRecord._fields + ('ordered_statistics',))
-OrderedStatistic = namedtuple( # pylint: disable=C0103
-    'OrderedStatistic', ('items_base', 'items_add', 'confidence', 'lift',))
+SupportRecord = namedtuple(  # pylint: disable=C0103
+    "SupportRecord", ("items", "support")
+)
+RelationRecord = namedtuple(  # pylint: disable=C0103
+    "RelationRecord", SupportRecord._fields + ("ordered_statistics",)
+)
+OrderedStatistic = namedtuple(  # pylint: disable=C0103
+    "OrderedStatistic", ("items_base", "items_add", "confidence", "lift",)
+)
 
 
 ################################################################################
@@ -153,10 +156,12 @@ def create_next_candidates(prev_candidates, length):
     # Filter candidates that all of their subsets are
     # in the previous candidates.
     next_candidates = [
-        candidate for candidate in tmp_next_candidates
+        candidate
+        for candidate in tmp_next_candidates
         if all(
             True if frozenset(x) in prev_candidates else False
-            for x in combinations(candidate, length - 1))
+            for x in combinations(candidate, length - 1)
+        )
     ]
     return next_candidates
 
@@ -173,11 +178,12 @@ def gen_support_records(transaction_manager, min_support, **kwargs):
         max_length -- The maximum length of relations (integer).
     """
     # Parse arguments.
-    max_length = kwargs.get('max_length')
+    max_length = kwargs.get("max_length")
 
     # For testing.
     _create_next_candidates = kwargs.get(
-        '_create_next_candidates', create_next_candidates)
+        "_create_next_candidates", create_next_candidates
+    )
 
     # Process.
     candidates = transaction_manager.initial_candidates()
@@ -209,11 +215,11 @@ def gen_ordered_statistics(transaction_manager, record):
     for combination_set in combinations(sorted(items), len(items) - 1):
         items_base = frozenset(combination_set)
         items_add = frozenset(items.difference(items_base))
-        confidence = (
-            record.support / transaction_manager.calc_support(items_base))
+        confidence = record.support / transaction_manager.calc_support(items_base)
         lift = confidence / transaction_manager.calc_support(items_add)
         yield OrderedStatistic(
-            frozenset(items_base), frozenset(items_add), confidence, lift)
+            frozenset(items_base), frozenset(items_add), confidence, lift
+        )
 
 
 def filter_ordered_statistics(ordered_statistics, **kwargs):
@@ -227,8 +233,8 @@ def filter_ordered_statistics(ordered_statistics, **kwargs):
         min_confidence -- The minimum confidence of relations (float).
         min_lift -- The minimum lift of relations (float).
     """
-    min_confidence = kwargs.get('min_confidence', 0.0)
-    min_lift = kwargs.get('min_lift', 0.0)
+    min_confidence = kwargs.get("min_confidence", 0.0)
+    min_lift = kwargs.get("min_lift", 0.0)
 
     for ordered_statistic in ordered_statistics:
         if ordered_statistic.confidence < min_confidence:
@@ -256,27 +262,29 @@ def apriori(transactions, **kwargs):
         max_length -- The maximum length of the relation (integer).
     """
     # Parse the arguments.
-    min_support = kwargs.get('min_support', 0.1)
-    min_confidence = kwargs.get('min_confidence', 0.0)
-    min_lift = kwargs.get('min_lift', 0.0)
-    max_length = kwargs.get('max_length', None)
+    min_support = kwargs.get("min_support", 0.1)
+    min_confidence = kwargs.get("min_confidence", 0.0)
+    min_lift = kwargs.get("min_lift", 0.0)
+    max_length = kwargs.get("max_length", None)
 
     # Check arguments.
     if min_support <= 0:
-        raise ValueError('minimum support must be > 0')
+        raise ValueError("minimum support must be > 0")
 
     # For testing.
-    _gen_support_records = kwargs.get(
-        '_gen_support_records', gen_support_records)
+    _gen_support_records = kwargs.get("_gen_support_records", gen_support_records)
     _gen_ordered_statistics = kwargs.get(
-        '_gen_ordered_statistics', gen_ordered_statistics)
+        "_gen_ordered_statistics", gen_ordered_statistics
+    )
     _filter_ordered_statistics = kwargs.get(
-        '_filter_ordered_statistics', filter_ordered_statistics)
+        "_filter_ordered_statistics", filter_ordered_statistics
+    )
 
     # Calculate supports.
     transaction_manager = TransactionManager.create(transactions)
     support_records = _gen_support_records(
-        transaction_manager, min_support, max_length=max_length)
+        transaction_manager, min_support, max_length=max_length
+    )
 
     # Calculate ordered stats.
     for support_record in support_records:
@@ -290,7 +298,8 @@ def apriori(transactions, **kwargs):
         if not ordered_statistics:
             continue
         yield RelationRecord(
-            support_record.items, support_record.support, ordered_statistics)
+            support_record.items, support_record.support, ordered_statistics
+        )
 
 
 ################################################################################
@@ -304,48 +313,82 @@ def parse_args(argv):
         argv -- An argument list without the program name.
     """
     output_funcs = {
-        'json': dump_as_json,
-        'tsv': dump_as_two_item_tsv,
+        "json": dump_as_json,
+        "tsv": dump_as_two_item_tsv,
     }
-    default_output_func_key = 'json'
+    default_output_func_key = "json"
 
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        '-v', '--version', action='version',
-        version='%(prog)s {0}'.format('0.0.1'))
+        "-v", "--version", action="version", version="%(prog)s {0}".format("0.0.1")
+    )
     parser.add_argument(
-        'input', metavar='inpath', nargs='*',
-        help='Input transaction file (default: stdin).',
-        type=argparse.FileType('r'), default=[sys.stdin])
+        "input",
+        metavar="inpath",
+        nargs="*",
+        help="Input transaction file (default: stdin).",
+        type=argparse.FileType("r"),
+        default=[sys.stdin],
+    )
     parser.add_argument(
-        '-o', '--output', metavar='outpath',
-        help='Output file (default: stdout).',
-        type=argparse.FileType('w'), default=sys.stdout)
+        "-o",
+        "--output",
+        metavar="outpath",
+        help="Output file (default: stdout).",
+        type=argparse.FileType("w"),
+        default=sys.stdout,
+    )
     parser.add_argument(
-        '-l', '--max-length', metavar='int',
-        help='Max length of relations (default: infinite).',
-        type=int, default=None)
+        "-l",
+        "--max-length",
+        metavar="int",
+        help="Max length of relations (default: infinite).",
+        type=int,
+        default=None,
+    )
     parser.add_argument(
-        '-s', '--min-support', metavar='float',
-        help='Minimum support ratio (must be > 0, default: 0.1).',
-        type=float, default=0.1)
+        "-s",
+        "--min-support",
+        metavar="float",
+        help="Minimum support ratio (must be > 0, default: 0.1).",
+        type=float,
+        default=0.1,
+    )
     parser.add_argument(
-        '-c', '--min-confidence', metavar='float',
-        help='Minimum confidence (default: 0.5).',
-        type=float, default=0.5)
+        "-c",
+        "--min-confidence",
+        metavar="float",
+        help="Minimum confidence (default: 0.5).",
+        type=float,
+        default=0.5,
+    )
     parser.add_argument(
-        '-t', '--min-lift', metavar='float',
-        help='Minimum lift (default: 0.0).',
-        type=float, default=0.0)
+        "-t",
+        "--min-lift",
+        metavar="float",
+        help="Minimum lift (default: 0.0).",
+        type=float,
+        default=0.0,
+    )
     parser.add_argument(
-        '-d', '--delimiter', metavar='str',
-        help='Delimiter for items of transactions (default: tab).',
-        type=str, default='\t')
+        "-d",
+        "--delimiter",
+        metavar="str",
+        help="Delimiter for items of transactions (default: tab).",
+        type=str,
+        default="\t",
+    )
     parser.add_argument(
-        '-f', '--out-format', metavar='str',
-        help='Output format ({0}; default: {1}).'.format(
-            ', '.join(output_funcs.keys()), default_output_func_key),
-        type=str, choices=output_funcs.keys(), default=default_output_func_key)
+        "-f",
+        "--out-format",
+        metavar="str",
+        help="Output format ({0}; default: {1}).".format(
+            ", ".join(output_funcs.keys()), default_output_func_key
+        ),
+        type=str,
+        choices=output_funcs.keys(),
+        default=default_output_func_key,
+    )
     args = parser.parse_args(argv)
 
     args.output_func = output_funcs[args.out_format]
@@ -362,9 +405,9 @@ def load_transactions(input_file, **kwargs):
     Keyword arguments:
         delimiter -- The delimiter of the transaction.
     """
-    delimiter = kwargs.get('delimiter', '\t')
+    delimiter = kwargs.get("delimiter", "\t")
     for transaction in csv.reader(input_file, delimiter=delimiter):
-        yield transaction if transaction else ['']
+        yield transaction if transaction else [""]
 
 
 def dump_as_json(record, output_file):
@@ -375,6 +418,7 @@ def dump_as_json(record, output_file):
         record -- A RelationRecord instance to dump.
         output_file -- A file to output.
     """
+
     def default_func(value):
         """
         Default conversion for JSON value.
@@ -384,10 +428,14 @@ def dump_as_json(record, output_file):
         raise TypeError(repr(value) + " is not JSON serializable")
 
     converted_record = record._replace(
-        ordered_statistics=[x._asdict() for x in record.ordered_statistics])
+        ordered_statistics=[x._asdict() for x in record.ordered_statistics]
+    )
     json.dump(
-        converted_record._asdict(), output_file,
-        default=default_func, ensure_ascii=False)
+        converted_record._asdict(),
+        output_file,
+        default=default_func,
+        ensure_ascii=False,
+    )
     output_file.write(os.linesep)
 
 
@@ -404,10 +452,16 @@ def dump_as_two_item_tsv(record, output_file):
             continue
         if len(ordered_stats.items_add) != 1:
             continue
-        output_file.write('{0}\t{1}\t{2:.8f}\t{3:.8f}\t{4:.8f}{5}'.format(
-            list(ordered_stats.items_base)[0], list(ordered_stats.items_add)[0],
-            record.support, ordered_stats.confidence, ordered_stats.lift,
-            os.linesep))
+        output_file.write(
+            "{0}\t{1}\t{2:.8f}\t{3:.8f}\t{4:.8f}{5}".format(
+                list(ordered_stats.items_base)[0],
+                list(ordered_stats.items_add)[0],
+                record.support,
+                ordered_stats.confidence,
+                ordered_stats.lift,
+                os.linesep,
+            )
+        )
 
 
 def main(**kwargs):
@@ -415,21 +469,21 @@ def main(**kwargs):
     Executes Apriori algorithm and print its result.
     """
     # For tests.
-    _parse_args = kwargs.get('_parse_args', parse_args)
-    _load_transactions = kwargs.get('_load_transactions', load_transactions)
-    _apriori = kwargs.get('_apriori', apriori)
+    _parse_args = kwargs.get("_parse_args", parse_args)
+    _load_transactions = kwargs.get("_load_transactions", load_transactions)
+    _apriori = kwargs.get("_apriori", apriori)
 
     args = _parse_args(sys.argv[1:])
-    transactions = _load_transactions(
-        chain(*args.input), delimiter=args.delimiter)
+    transactions = _load_transactions(chain(*args.input), delimiter=args.delimiter)
     result = _apriori(
         transactions,
         max_length=args.max_length,
         min_support=args.min_support,
-        min_confidence=args.min_confidence)
+        min_confidence=args.min_confidence,
+    )
     for record in result:
         args.output_func(record, args.output)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

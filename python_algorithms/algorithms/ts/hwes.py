@@ -1,6 +1,7 @@
 # Holt Winters Exponential Smoothing
 from statsmodels.tsa.holtwinters import ExponentialSmoothing
 from random import random
+
 # contrived dataset
 data = [x + random() for x in range(1, 100)]
 # fit model

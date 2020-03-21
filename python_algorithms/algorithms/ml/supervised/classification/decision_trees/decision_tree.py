@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 
 import matplotlib.pyplot as plt
+
 # %matplotlib inline
 
 ### Import data
@@ -9,11 +10,14 @@ import matplotlib.pyplot as plt
 SEED = 222
 np.random.seed(SEED)
 
-df = pd.read_csv('python_algorithms/algorithms/ml/supervised/classification/decision_trees/input.csv')
+df = pd.read_csv(
+    "python_algorithms/algorithms/ml/supervised/classification/decision_trees/input.csv"
+)
 
 ### Training and test set
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_auc_score
+
 
 def get_train_test(test_size=0.95):
     """Split Data into train and test sets."""
@@ -22,6 +26,7 @@ def get_train_test(test_size=0.95):
     X = pd.get_dummies(X, sparse=True)
     X.drop(X.columns[X.std() == 0], axis=1, inplace=True)
     return train_test_split(X, y, test_size=test_size, random_state=SEED)
+
 
 xtrain, xtest, ytrain, ytest = get_train_test()
 
@@ -35,6 +40,7 @@ from IPython.display import Image
 from sklearn.metrics import roc_auc_score
 from sklearn.tree import DecisionTreeClassifier, export_graphviz
 
+
 def print_graph(clf, feature_names):
     """Print decision tree."""
     graph = export_graphviz(
@@ -46,7 +52,7 @@ def print_graph(clf, feature_names):
         feature_names=feature_names,
         class_names={0: "D", 1: "R"},
         filled=True,
-        rounded=True
+        rounded=True,
     )
     graph = pydotplus.graph_from_dot_data(graph)
     return Image(graph.create_png())

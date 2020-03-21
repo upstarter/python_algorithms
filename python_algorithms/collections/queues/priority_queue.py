@@ -5,7 +5,7 @@ class PriorityQueue(object):
         self.queue = []
 
     def __str__(self):
-        return ' '.join([str(i) for i in self.queue])
+        return " ".join([str(i) for i in self.queue])
 
     # check if the queue is empty
     def isEmpty(self):
@@ -29,7 +29,8 @@ class PriorityQueue(object):
             print()
             exit()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     myQueue = PriorityQueue()
     myQueue.insert(1)
     myQueue.insert(199)

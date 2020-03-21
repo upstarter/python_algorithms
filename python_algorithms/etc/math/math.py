@@ -2,7 +2,7 @@ import math
 
 ## LOGARITHMS
 log2 = math.log(x, 2.0)
-log2 = math.log2(x)   # python 3.4 or later
+log2 = math.log2(x)  # python 3.4 or later
 
 # float in - int out If all you need is the integer part of log base 2 of a
 # floating point number, math.frexp() could be pretty efficient:

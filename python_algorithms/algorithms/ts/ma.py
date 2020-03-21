@@ -1,6 +1,7 @@
 # Moving Average Model
 from statsmodels.tsa.arima_model import ARMA
 from random import random
+
 # contrived dataset
 data = [x + random() for x in range(1, 100)]
 # fit model

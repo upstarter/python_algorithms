@@ -1,6 +1,6 @@
 from sklearn.naive_bayes import GaussianNB
 
-# Create SVM classification object 
+# Create SVM classification object
 model = GaussianNB()
 
 # there are other distributions for multinomial classes like
@@ -12,5 +12,5 @@ model = GaussianNB()
 # Train the model using the training sets and check score
 model.fit(X, y)
 
-#Predict Output
-predicted= model.predict(x_test)
+# Predict Output
+predicted = model.predict(x_test)
