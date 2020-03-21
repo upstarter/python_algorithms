@@ -24,15 +24,18 @@ for date, items in groupby(rows, key=itemgetter('date')):
         print(' ', i)
 
 
-## INVERT A DICT
+## INVERT A DICT (reverse order of keys and values), works only if no duplicate VALUES
+
 # invert in order to perform calculations, also precendence sorting
 prices = { 'ACME': 45.23, 'AAPL': 612.78, 'IBM': 205.55, 'HPQ': 37.20, 'FB': 10.75 }
 
 # invert k,v using zip
 inverted = zip(prices.values(), prices.keys())
 print('inverted: {}'.format(inverted))
+
+# find min price
 min_price = min(inverted)
-print(min_price)
+print('min: ', min_price)
 
 # rank data
 prices_sorted = sorted(zip(prices.values(), prices.keys()))

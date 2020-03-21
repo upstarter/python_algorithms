@@ -14,7 +14,7 @@ def is_palindrome(s):
         while not s[i].isalnum() and i < j:
             i += 1
         while not s[j].isalnum() and i < j:
-            j += 1
+            j -= 1
 
         if s[i].lower() != s[j].lower():
             return False
@@ -25,3 +25,17 @@ def is_palindrome(s):
 
 
 print is_palindrome(s)
+
+# add opening to a list
+# whenever we get a closing, it should be closer for last element in list
+# if last is not same type as closing or no last opening symbol at all (empty list), can stop - unbalanced
+# else we can remove last opening symbol in the list because we have got its counterpart
+# we keep track of unclosed parens
+def balanced_parens(chars):
+    n = len(chars)
+    opens = []
+    for o in opens:
+
+
+print(balanced_parens("()[]{}") == true)
+print(balanced_parens("()[]") == false)

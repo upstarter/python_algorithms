@@ -1,22 +1,10 @@
 from pprint import pprint
 
-data = [ 'OCN', 50, 91.1, (2012, 12, 21) ]
-name, shares, price, date = data
-name
-#=> 'OCN'
-date
-#=> (2012, 12, 21)
+# Membership
+all(x in ['b', 'a', 'foo', 'bar'] for x in ['a', 'b'])
+# => True
 
-name, shares, price, (year, mon, day) = data
-name
-# 'OCN'
-year
-#=> 2012
-mon
-#=> 12
-day
-#=> 21
-
+# Manipulation
 list_num = [1,2,45,6,7,2,90,23,435]
 list_char = ['c','o','o','k','i','e']
 
@@ -37,3 +25,21 @@ print(list_num)
 
 list.reverse(list_num)
 print(list_num)
+
+# Destructuring/Unpacking
+data = [ 'OCN', 50, 91.1, (2012, 12, 21) ]
+name, shares, price, date = data
+name
+#=> 'OCN'
+date
+#=> (2012, 12, 21)
+
+name, shares, price, (year, mon, day) = data
+name
+# 'OCN'
+year
+#=> 2012
+mon
+#=> 12
+day
+#=> 21
