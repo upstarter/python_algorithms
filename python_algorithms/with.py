@@ -1,3 +1,41 @@
+# CONTEXT MANAGERS - anywhere you have setup and teardown that get repeated in
+# your code, you want a context manager to improve it, example:
+f = open("data.txt")
+try:
+    data = f.read()
+finally:
+    f.close()
+
+# open handles the try/finally for us
+with open("data.txt") as f:
+    data = f.read()
+
+# how to use locks:
+lock = threading.lock
+with lock:
+    print("Critical section 1")
+    print("Critical section 2")
+
+
+# FACTORING OUT TEMPORARY CONTEXTS
+try:
+    os.remove("somefile.tmp")
+except ODError:
+    pass
+
+with ignored(OSError):
+    os.remove("somefile.tmp")
+
+# HOW IT'S MADE
+@contextmanager
+def ignored(*exceptions):
+    try:
+        yield
+    except exceptions:
+        pass
+
+
+# MAKING YOUR OWN CONTEXT MANAGERS
 # In order to make an object compatible with the with statement, you need to
 # implement __enter__() and __exit__() methods. For example, consider the
 # following class, which provides a network connection:

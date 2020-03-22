@@ -1,60 +1,48 @@
-# Construct a dictionary from pairs
+# Dict - fundamental tool: relations, linking, counting, grouping
 
-# izip returns iterables
-# xrange is better than range
-# Loop over dict keys and values
 
 d = {"a": 1, "b": 2}
-# creates many items in mem
+
+# ITERATE ON KEYS (DEFAULT LOOPING BEHAVIOR)
+for k in d:
+    print(k)
+
+# MUTATION WHILE LOOPING
+# BUT: if you want to mutate what your iterating over
+# note: if you mutate while iterating your living in sin and deserve whatever happens to you
+for k in d.keys():
+    if k.startswith("r"):
+        del d[k]
+
+# d.items() returns a generator (itemview)
 for k, v in d.items():
     print(k, v)
 
-# better in space
-for k, v in d.iteritems():
-    print(k, v)
+# CONSTRUCT A DICT FROM PAIRS
+names = ["ray", "rachel"]
+colors = ["red", "green"]
 
-names = []
-colors = []
-from itertools import izip
+d = dict(zip(names, colors))
+# izip_longest fills in None's for the shortest collection
 
-# faster than zip
-d = dict(izip(names, colors))
-# izip_longest fills in None's for shorter collection
-
+# correspondence relations
 res = zip("abcd", "wxyz")
-print(dict(res))
+print("res", dict(res))
+# => {'a': 'w', 'b': 'x', 'c': 'y', 'd': 'z'}
 
 print(dict([(k * 3, v) for k, v in res]))
 
-# counting with dicts
-# ok:
-d = {}
+print(dict(enumerate(names)))
+# => {0: 'ray', 1: 'rachel'}
+
+# COUNTING WITH DICTS
+d = defaultdict(int)
 for color in colors:
-    if color not in d:
-        d[color] = 0
     d[color] += 1
 
-# best:
-for color in colors:
-    d[color] = d.get(color, 0) + 1
+# GROUPING WITH DICTS
+from collections import defaultdict
 
-# grouping with dicts
-# ok:
-names = ["fred", "jim"]
-d = {}
-for name in names:
-    key = len(name)
-    if key not in d:
-        d[key] = []
-    d[key].append(name)
-
-# better:
-d = {}
-for name in names:
-    key = len(name)
-    d.setdefault(key, []).append(name)
-
-# most best:
 d = defaultdict(list)
 for name in names:
     key = len(name)

@@ -1,7 +1,7 @@
 # PythonAlgorithms
 
-Machine Learning and Artificial Intelligence
-tools.
+Machine Learning, Artificial Intelligence
+tools, Best Practices.
 
 ## DONE:
 
@@ -28,6 +28,8 @@ Nearest Neighbors
 Random Stochastic Search
 
 Markov Decision Processes
+
+Trie
 
 ## WIP:
 

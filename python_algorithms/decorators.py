@@ -1,4 +1,7 @@
 # using decorators to factor-out administrative logic
+# biz logic is opening a url and looking up web page
+# admin logic to factor out is caching the lookup
+# mixes logics and is not reusable
 def web_lookup(url, saved={}):
     if url in saved:
         return saved[url]
@@ -7,8 +10,8 @@ def web_lookup(url, saved={}):
     return page
 
 
-# better:
-@cache  # new one is lrucache
+# BETTER:
+@cache  # this is lrucache, only for pure functions (not random.random, etc.)
 def weblookup(url):
     return urllib.urlopen(url).read()
 
