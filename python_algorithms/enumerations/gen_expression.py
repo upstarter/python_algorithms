@@ -5,7 +5,9 @@ my_list = [1, 3, 6, 10]
 # Output: [1, 9, 36, 100]
 [x ** 2 for x in my_list]
 
-# same thing can be done using generator expression
+# same thing can be done using generator expression,
+# while loading each element into memory as needed
+# instead of loading the whole array into memory
 # Output: <generator object <genexpr> at 0x0000000002EBDAF8>
 a = (x ** 2 for x in my_list)
 

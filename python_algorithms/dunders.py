@@ -1,15 +1,15 @@
 # CORE
+# __len__  # get length with len
 # __add__  # maps to + operator
 # __getitem__  # access by index in list, or key in dict
-# __len__  # get length with len
-#
+# __getattr__
 #
 # # ITERATORS
 # __iter__  # returns an Iterator like `self` in `MyIterableClass`
 # __next__  # must raise exception StopIteration when no more items to return
 #
 
-# CAN ALIAS
+# HOW TO ALIAS methods
 # set in class
 class Word:
     def __init__(self, word):

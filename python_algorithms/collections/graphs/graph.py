@@ -32,10 +32,9 @@ graph = {
 # import dictionary for graph
 from collections import defaultdict
 
-# function for adding edge to graph
 graph = defaultdict(list)
 
-
+# function for adding edge to graph
 def addEdge(graph, u, v):
     graph[u].append(v)
 

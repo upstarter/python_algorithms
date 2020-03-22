@@ -3,7 +3,7 @@
 my_dict = {"a": 1, "b": 2, "c": 3}
 
 # Map keys and values sequentially
-result = {k + "_key": v * 2 for k, v in my_dict.iteritems()}
+result = {k + "_key": v * 2 for k, v in my_dict.items()}
 print(result)
 # => {'b_key': 4, 'a_key': 2, 'c_key': 6}
 

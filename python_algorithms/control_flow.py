@@ -6,9 +6,9 @@ except NameError:
 
 # Test whether variable is defined to be None
 if x is None:
-    some_fallback_operation()
+    print("some fallback operation")
 else:
-    some_operation(x)
+    print("some operation with: ", x)
 
 
 # Conditionals
@@ -16,20 +16,25 @@ else:
 ## If
 age = 18
 if age >= 18:
-    print ("is an adult")
+    print(("is an adult"))
 elif age >= 12:
-    print "is a young adult"
+    print("is a young adult")
 elif age >= 3:
-    print "child"
+    print("child")
 else:
-    print "not an adult"
+    print("not an adult")
 
 ## Ternary
 old_enough = "Adult" if age >= 21 else "Under 21"
 
 ## While
 while age < 50:
-    print "not old enough"
+    print("not old enough")
     age += 1
 
-# Boolean Logic
+# Boolean Logic & Short Circuiting
+1 and print(1)
+0 and print(0)  # never prints (0, None, False)
+
+1 or print(1)  # never prints
+0 or print(0)  # prints 0

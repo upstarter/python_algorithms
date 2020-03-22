@@ -64,7 +64,7 @@ class LazyConnection:
 
 # The key feature of this class is that it represents a network connection, but it
 # doesn’t actually do anything initially (e.g., it doesn’t establish a
-# connection). Instead, the con‐ nection is established and closed using the with
+# connection). Instead, the connection is established and closed using the with
 # statement (essentially on demand). For example:
 
 from functools import partial
