@@ -33,8 +33,7 @@ square_matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
 print(matrix_in_spiral_order(square_matrix))
 
 
-# The above works in four almoste identical iterations, Now a solution with a single iteration:
-
+# The above works in four almost identical iterations, Now a solution with a single iteration:
 
 def matrix_in_spiral_order_single_iter(square_matrix: [[int]]) -> [int]:
     shift = ((0, 1), (1, 0), (0, -1), (-1, 0))

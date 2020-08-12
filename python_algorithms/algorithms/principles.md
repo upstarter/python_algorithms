@@ -32,10 +32,10 @@
   1. how would you manually solve the simplest, solve larger version
   2. write out manual steps you took in step 1 above
   3. code above step by step
-  - break into subproblems
-  - use processed elements (seen, max_so_far, moving_avg, etc.)
-  - use auxiliary data structure (map, tuple, set, stack, queue, heap, tree)
-  - track multiple indices, vars, diffs, sums, counts, factors, multiples, remainders, divisors, stats, vectors
+    - break into subproblems
+    - use processed elements (seen, max_so_far, moving_avg, etc.)
+    - use auxiliary data structure (map, tuple, set, stack, queue, heap, tree)
+    - track multiple indices, vars, diffs, sums, counts, factors, multiples, remainders, divisors, stats, vectors
 3. Think with simpler examples -> try noticing a pattern
   - reduce number of elements
 4. Use Visualization
@@ -85,7 +85,7 @@
     - Activity Selection Problem
     - Huffman coding
     - Job Sequencing
-    - Fractinoal Knapsack
+    - Fractional Knapsack
     - Primms minimum spanning tree
 
 # Seeing the End Game - **Retrograde Analysis**
