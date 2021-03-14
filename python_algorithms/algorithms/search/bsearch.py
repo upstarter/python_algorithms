@@ -42,7 +42,7 @@ def binary_search_recursive(data, target, low, high):
 print binary_search_iter(data, 5)
 print binary_search_recursive(data, 5, 0, len(data) - 1)
 
-# FOR INFINITE STREAMS
+# JUMP SEARCH FOR INFINITE STREAM
 # Search an infinite list of words in sorted order for an index corresponding to a word as input
 # given an infinite list ["apple", "banana", "cat", "dog", ...] we have a class A where A.get(2) # => "cat" write a function to return the index for the word given as input to the function like so:
 #

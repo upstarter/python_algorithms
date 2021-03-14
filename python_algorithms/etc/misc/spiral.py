@@ -64,6 +64,7 @@ def spiralCopy(inputMatrix):
     n = len(inputMatrix)
     m = len(inputMatrix[0])
 
+    # set initial processing boundary indexes
     topRow = 0
     btmRow = n - 1
     leftCol = 0
