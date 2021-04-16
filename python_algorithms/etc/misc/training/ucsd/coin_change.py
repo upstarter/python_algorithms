@@ -25,10 +25,33 @@ def count(S, m, n):
     return count(S, m - 1, n) + count(S, m, n - S[m - 1])
 
 
-# Driver program to test above function
 arr = [1, 2, 3]
 m = len(arr)
 print(count(arr, m, 4))
+
+
+# Greedy
+import sys
+
+def get_change(m):
+    if m == 0:
+        return 0
+
+    ans = []
+    coins = [1,5,10]
+    n = len(coins)
+    i = n - 1
+    while (i >= 0):
+        while (m >= coins[i]):
+            m -= coins[i]
+            ans.append(coins[i])
+        i -= 1
+
+    return len(ans)
+
+if __name__ == '__main__':
+    m = int(sys.stdin.read())
+    print(get_change(m))
 
 
 # Dynamic Programming Coin Change
@@ -58,7 +81,6 @@ def count(S, m, n):
     return table[n][m - 1]
 
 
-# Driver program to test above function
 arr = [1, 2, 3]
 m = len(arr)
 n = 4

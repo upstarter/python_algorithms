@@ -15,9 +15,9 @@ def binary_search_iter(data, target):
     high = len(data) - 1
 
     while low <= high:
-        mid = (low + high) // 2
+        mid = low + (high - low) // 2
         if target == data[mid]:
-            return True
+            return mid
         elif target < data[mid]:
             high = mid - 1
         else:
@@ -28,11 +28,11 @@ def binary_search_iter(data, target):
 # Recursive Binary Search
 def binary_search_recursive(data, target, low, high):
     if low > high:
-        return False
+        return low - 1
     else:
         mid = (low + high) // 2
         if target == data[mid]:
-            return True
+            return mid
         elif target < data[mid]:
             return binary_search_recursive(data, target, low, mid - 1)
         else:
